@@ -2,12 +2,15 @@
 public class Start {
     public static void main(String[] str){
         System.out.println("\nReverse Linked List Using Array:");
-        Methods.PrepareInputReverseLinkedListUsingArrayAndDisplay();
-        
+        Methods.TestReverseLinkedListUsingArray();
+
         System.out.println("\nReverse Linked List Using Previous:");
-        Methods.PrepareInputReverseLinkedListUsingPreviousAndDisplay();
+        Methods.TestReverseLinkedListUsingPrevious();
 
         System.out.println("\nReverse Linked List Using Recursion:");
-        Methods.PrepareInputReverseLinkedListUsingRecursionAndDisplay();
+        Methods.TestReverseLinkedListUsingRecursion();
+
+        System.out.println("\nDelete given Node without traversing Linked List:");
+        Methods.TestDeleteNodeWithoutTraversing();
     }
 }

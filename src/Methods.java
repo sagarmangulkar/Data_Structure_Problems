@@ -3,22 +3,22 @@ import java.util.List;
 
 public class Methods {
 
-    public static void PrepareInputReverseLinkedListUsingArrayAndDisplay(){
-        NumberAndPointer head = PrepareHardcodedInputLinkedList(10);
+    public static void TestReverseLinkedListUsingArray(){
+        NumberAndPointer head = PrepareHardcodedInputLinkedList(1, 10);
         DisplayList(head);
         NumberAndPointer reversedHead = ReverseLinkedListElementsUsingArray(head);
         DisplayList(reversedHead);
     }
 
-    public static void PrepareInputReverseLinkedListUsingPreviousAndDisplay(){
-        NumberAndPointer head = PrepareHardcodedInputLinkedList(10);
+    public static void TestReverseLinkedListUsingPrevious(){
+        NumberAndPointer head = PrepareHardcodedInputLinkedList(1, 10);
         DisplayList(head);
         NumberAndPointer reversedHead = ReverseLinkedListElementsWithPrevious(head);
         DisplayList(reversedHead);
     }
 
-    public static void PrepareInputReverseLinkedListUsingRecursionAndDisplay(){
-        NumberAndPointer head = PrepareHardcodedInputLinkedList(10);
+    public static void TestReverseLinkedListUsingRecursion(){
+        NumberAndPointer head = PrepareHardcodedInputLinkedList(1, 10);
         DisplayList(head);
         NumberAndPointer reversedHead = ReverseLinkedListElementsWithRecursion(head);
         DisplayList(reversedHead);
@@ -82,14 +82,27 @@ public class Methods {
         System.out.println(result.substring(0, result.length()-2));
     }
 
-    private static NumberAndPointer PrepareHardcodedInputLinkedList(int size) {
-        NumberAndPointer head = new NumberAndPointer(1,null);
+    private static NumberAndPointer PrepareHardcodedInputLinkedList(int start, int end) {
+        NumberAndPointer head = new NumberAndPointer(start,null);
         NumberAndPointer temp = head;
-        for (int i = 0; i < size-1; i++) {
-            NumberAndPointer numberAndPointer = new NumberAndPointer(i+2, null);
+        for (int i = start; i < end; i++) {
+            NumberAndPointer numberAndPointer = new NumberAndPointer(i+1, null);
             temp.setNext(numberAndPointer);
             temp = numberAndPointer;
         }
         return head;
+    }
+
+    public static void TestDeleteNodeWithoutTraversing() {
+        NumberAndPointer head = PrepareHardcodedInputLinkedList(1, 5);
+        DisplayList(head);
+        NumberAndPointer nodeToBeDeleted = head.getNext().getNext();    //nodeToBeDeleted = 3
+        DeleteNode(nodeToBeDeleted);
+        DisplayList(head);
+    }
+
+    private static void DeleteNode(NumberAndPointer nodeToBeDeleted) {
+        nodeToBeDeleted.setNumber(nodeToBeDeleted.getNext().getNumber());
+        nodeToBeDeleted.setNext(nodeToBeDeleted.getNext().getNext());
     }
 }
